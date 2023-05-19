@@ -1,0 +1,33 @@
+urlpatterns = [
+...
+path('profile/, views.ProfileListView.as_view(), name='profile'),
+...
+]
+
+#views.py
+
+class ProfileListView(ListView):
+    model = Post
+    template_name = 'blog/profile.html'
+    ordering = 'id'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        profile = get_object_or_404(User, username=self.request.user.username)
+        #profile = get_object_or_404(User, id=self.request.user.id)
+        context['profile'] = profile
+        return context
+    
+    def get_queryset(self):
+        post_list = Post.objects.prefetch_related(
+            'comments'
+        ).select_related('author').filter(
+            is_published=True,
+            category__is_published=True,
+            pub_date__lte=datetime.now(),
+            author__username__exact=self.request.user.username
+            #author__username__exact=self.kwargs['username']
+        ).annotate(comment_count=Count('comments')
+        ).order_by('-pub_date')
+        return post_list
