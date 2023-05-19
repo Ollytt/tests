@@ -15,7 +15,6 @@ class ProfileListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         profile = get_object_or_404(User, username=self.request.user.username)
-        #profile = get_object_or_404(User, id=self.request.user.id)
         context['profile'] = profile
         return context
     
@@ -27,7 +26,6 @@ class ProfileListView(ListView):
             category__is_published=True,
             pub_date__lte=datetime.now(),
             author__username__exact=self.request.user.username
-            #author__username__exact=self.kwargs['username']
         ).annotate(comment_count=Count('comments')
         ).order_by('-pub_date')
         return post_list
