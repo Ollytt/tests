@@ -1,0 +1,29 @@
+(venv) 
+tenko@DESKTOP-BODNI1V MINGW64 /c/Dev/django_sprint4 (main)
+$ which python
+/c/Dev/django_sprint4/\Dev\django_sprint4\venv/Scripts/python
+(venv) 
+tenko@DESKTOP-BODNI1V MINGW64 /c/Dev/django_sprint4 (main)
+$ pip list|egrep -i "django|pytest"
+Django               3.2.16
+django-bootstrap5    22.2
+django_debug_toolbar 3.8.1
+pytest               7.3.1
+(venv) 
+tenko@DESKTOP-BODNI1V MINGW64 /c/Dev/django_sprint4 (main)
+$ ls -la
+total 104
+drwxr-xr-x 1 tenko 197609     0 май 16 15:07 ./
+drwxr-xr-x 1 tenko 197609     0 май 15 13:02 ../
+drwxr-xr-x 1 tenko 197609     0 май 19 21:43 .git/
+-rw-r--r-- 1 tenko 197609  2265 май 14 13:27 .gitignore
+drwxr-xr-x 1 tenko 197609     0 май 19 21:41 blogicum/
+-rw-r--r-- 1 tenko 197609 71514 май 14 13:27 db.json
+-rw-r--r-- 1 tenko 197609     0 май 14 13:27 LICENSE
+-rw-r--r-- 1 tenko 197609   252 май 14 13:27 pytest.ini
+-rw-r--r-- 1 tenko 197609    16 май 14 13:27 README.md
+-rw-r--r-- 1 tenko 197609   404 май 14 13:27 requirements.txt
+-rw-r--r-- 1 tenko 197609   144 май 14 13:27 setup.cfg
+drwxr-xr-x 1 tenko 197609     0 май 16 15:07 templates/
+drwxr-xr-x 1 tenko 197609     0 май 19 21:54 tests/
+drwxr-xr-x 1 tenko 197609     0 май 15 12:45 venv/
